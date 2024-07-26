@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FinalProject.SQLite;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 
 namespace FinalProject
 {
     public partial class App : Application
     {
+        public static SQLiteOperations DBConnection;
         public App()
         {
             InitializeComponent();
@@ -23,6 +24,19 @@ namespace FinalProject
 
         protected override void OnResume()
         {
+        }
+
+        public static SQLiteOperations Database
+        {
+            get
+            {
+                if (DBConnection == null)
+                {
+                    DBConnection = new SQLiteOperations();
+                }
+                return DBConnection;
+            }
+
         }
     }
 }
