@@ -5,14 +5,16 @@
              x:Class="FinalProject.MainPage">
 
     <StackLayout Padding="10">
-        <Label Text="Notification Center"
+
+            <Label Text="Notification Center"
                FontSize="24"
                HorizontalOptions="Center"
                VerticalOptions="Start" />
 
         <Button Text="Enable Notifications"
                 Clicked="OnEnableNotificationsClicked" />
-
+        <Button x:Name="AddItem" Text="Add Item" Clicked="AddItem_Clicked" FontSize="16" Margin ="30,0,30,0"/>
+        <Entry x:Name="ItemName" Placeholder="Item Name" FontSize="16" Margin ="30,0,30,0"/>
         <Button Text="Disable Notifications"
                 Clicked="OnDisableNotificationsClicked" />
 
@@ -23,5 +25,20 @@
         <Label x:Name="StatusLabel"
                FontSize="16"
                VerticalOptions="Start" />
+        <ListView x:Name="ItemList" RefreshControlColor="#1c71c6" HasUnevenRows="True" VerticalOptions="FillAndExpand" Margin="30,10,30,10" HorizontalOptions="FillAndExpand" SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Item Name : "/>
+                            <Label x:Name="ItemName" Text="{Binding ItemName}"/>
+                            <Label Text="Is Done: "/>
+                            <Label x:Name="IsDone" Text="{Binding IsDone}"/>
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>
