@@ -2,43 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FinalProject"
-             x:Class="FinalProject.MainPage">
+             x:Class="FinalProject.MainPage"
+             BackgroundColor="{StaticResource BackgroundColorLight}">
 
     <StackLayout Padding="10">
-
-            <Label Text="Notification Center"
+        <Label Text="Notification Hub"
                FontSize="24"
+               TextColor="#1c71c6"
+              
                HorizontalOptions="Center"
                VerticalOptions="Start" />
 
-        <Button Text="Enable Notifications"
-                Clicked="OnEnableNotificationsClicked" />
-        <Button x:Name="AddItem" Text="Add Item" Clicked="AddItem_Clicked" FontSize="16" Margin ="30,0,30,0"/>
-        <Entry x:Name="ItemName" Placeholder="Item Name" FontSize="16" Margin ="30,0,30,0"/>
-        <Button Text="Disable Notifications"
-                Clicked="OnDisableNotificationsClicked" />
+       
 
-        <Label Text="Notifications Status:"
+        <Button Text="Enable Notifications"
+                Clicked="OnEnableNotificationsClicked" Margin="30,10,30,10" />
+        <Button x:Name="AddApp" Text="Add Application" Clicked="AddApplication_Clicked" FontSize="16" Margin="30,10,30,10" />
+        <Entry x:Name="AppName" TextColor="#1c71c6"  PlaceholderColor="#1c71c6" Placeholder="Application Name" FontSize="16"  Margin="33,10,30,10" />
+        <Button Text="Disable Notifications"
+                Clicked="OnDisableNotificationsClicked" Margin="30,10,30,10" />
+
+        <Label Text=" Notifications Status:"
+               Margin="30,0,30,0"
+               TextColor="#1c71c6"
                FontSize="18"
                VerticalOptions="Start" />
 
         <Label x:Name="StatusLabel"
                FontSize="16"
                VerticalOptions="Start" />
-        <ListView x:Name="ItemList" RefreshControlColor="#1c71c6" HasUnevenRows="True" VerticalOptions="FillAndExpand" Margin="30,10,30,10" HorizontalOptions="FillAndExpand" SeparatorVisibility="None">
+        <ListView x:Name="AppList" RefreshControlColor="#1c71c6" HasUnevenRows="True" VerticalOptions="FillAndExpand" Margin="30,10,30,10" HorizontalOptions="FillAndExpand" SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Item Name : "/>
-                            <Label x:Name="ItemName" Text="{Binding ItemName}"/>
-                            <Label Text="Is Done: "/>
-                            <Label x:Name="IsDone" Text="{Binding IsDone}"/>
 
+                            <Label Margin="5,0,0,0" TextColor="#1c71c6" Text="Application Name: " />
+                            <Label FontAttributes="Bold" TextColor="#1c71c6" x:Name ="AppName" Text="{Binding AppName}" />
+                            <Label TextColor="#1c71c6" Text="Seen: " />
+                            <Label TextColor="#1c71c6" x:Name ="IsDone" Text="{Binding IsDone}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="ToggleDarkModeButton"
+            Margin="30,10,30,10"
+            Text="Toggle Dark Mode"
+            Clicked="ToggleDarkMode_Clicked"
+            TextColor="{StaticResource ForegroundColorLight}"/>
     </StackLayout>
 </ContentPage>

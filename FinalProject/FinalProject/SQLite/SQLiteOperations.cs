@@ -84,7 +84,7 @@ namespace FinalProject.SQLite
         {
             //Drop the created tables here
             await _sqLiteConnection.DropTableAsync<DBVersion>();
-            await _sqLiteConnection.DropTableAsync<ToDoItem>();
+            await _sqLiteConnection.DropTableAsync<NotificationApp>();
 
         }
         #endregion
@@ -94,7 +94,7 @@ namespace FinalProject.SQLite
         {
             // Create Your New Table Here
             await _sqLiteConnection.CreateTableAsync<DBVersion>();
-            await _sqLiteConnection.CreateTableAsync<ToDoItem>();
+            await _sqLiteConnection.CreateTableAsync<NotificationApp>();
         }
         #endregion
         public SQLiteAsyncConnection DBConnection()

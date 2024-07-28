@@ -59,12 +59,12 @@ namespace FinalProject.SQLite
 
         #region User Related
 
-        public static Task<List<ToDoItem>> GetItemDetails()
+        public static Task<List<NotificationApp>> GetAppDetails()
         {
-            Task<List<ToDoItem>> StudentsDetails = null;
+            Task<List<NotificationApp>> StudentsDetails = null;
             try
             {
-                StudentsDetails = App.Database.DBConnection().Table<ToDoItem>().OrderBy(x => x.ItemName).ToListAsync();
+                StudentsDetails = App.Database.DBConnection().Table<NotificationApp>().OrderBy(x => x.AppName).ToListAsync();
             }
             catch (Exception Ex)
             {
@@ -73,11 +73,11 @@ namespace FinalProject.SQLite
             return StudentsDetails;
         }
 
-        public static async Task<bool> InsertTodoItem(string itemName)
+        public static async Task<bool> InsertTodoApp(string appName)
         {
             bool result = false;
-            ToDoItem todo = new ToDoItem();
-            todo.ItemName = itemName;
+            NotificationApp todo = new NotificationApp();
+            todo.AppName = appName;
             todo.IsDone = false;
 
             try
@@ -91,12 +91,12 @@ namespace FinalProject.SQLite
             return result;
         }
 
-        public static Task<List<ToDoItem>> GetTodoItem()
+        public static Task<List<NotificationApp>> GetTodoItem()
         {
-            Task<List<ToDoItem>> StudentsDetails = null;
+            Task<List<NotificationApp>> StudentsDetails = null;
             try
             {
-                StudentsDetails = App.Database.DBConnection().Table<ToDoItem>().OrderBy(x => x.ItemName).ToListAsync();
+                StudentsDetails = App.Database.DBConnection().Table<NotificationApp>().OrderBy(x => x.AppName).ToListAsync();
             }
             catch (Exception Ex)
             {

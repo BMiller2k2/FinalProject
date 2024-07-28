@@ -5,11 +5,11 @@ namespace FinalProject.SQLite
 {
     public interface IDataStore<T>
     {
-        Task<bool> AddItemAsync(T item);
-        Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(string id);
-        Task<T> GetItemAsync(string id);
-        Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        Task<bool> AddAppAsync(T app);
+        Task<bool> UpdateAppAsync(T app);
+        Task<bool> DeleteAppAsync(string id);
+        Task<T> GetAppAsync(string id);
+        Task<IEnumerable<T>> GetAppsAsync(bool forceRefresh = false);
     }
 }
 

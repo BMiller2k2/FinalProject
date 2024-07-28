@@ -3,6 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProject.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="BackgroundColorLight">#FFFFFF</Color>
+            <Color x:Key="ForegroundColorLight">#000000</Color>
 
+            <Color x:Key="BackgroundColorDark">#000000</Color>
+            <Color x:Key="ForegroundColorDark">#FFFFFF</Color>
+
+            <Style x:Key="LightTheme" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColorLight}"/>
+            </Style>
+
+            <Style x:Key="DarkTheme" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColorDark}"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
